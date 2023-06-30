@@ -1,6 +1,6 @@
 package classes;
 
-public class LinkedList<T> {
+public class LinkedList {
     private Node head;
     private Node tail;
     private int length;
@@ -8,8 +8,8 @@ public class LinkedList<T> {
     public LinkedList() {
     }
 
-    public LinkedList(T value) {
-        Node newNode = new Node<T>(value);
+    public LinkedList(int value) {
+        Node newNode = new Node(value);
         this.head = newNode;
         this.tail = newNode;
         length++;
@@ -24,8 +24,8 @@ public class LinkedList<T> {
     }
 
     /* Insert into last index */
-    public void append(T value) {
-        Node newNode = new Node<T>(value);
+    public void append(int value) {
+        Node newNode = new Node(value);
         if (length == 0) {
             this.head = newNode;
         } else {
@@ -57,8 +57,8 @@ public class LinkedList<T> {
     }
 
     /* Insert into first index */
-    public Node push(T value) {
-        Node newNode = new Node<T>(value);
+    public Node push(int value) {
+        Node newNode = new Node(value);
         newNode.next = this.head;
         if (length == 0) {
             this.tail = newNode;
@@ -95,7 +95,7 @@ public class LinkedList<T> {
     }
 
     /* Set for replace Node with specific index */
-    public boolean set(int index, T value) {
+    public boolean set(int index, int value) {
         if (index < 0 || index >= length) return false;
 
         Node tempNode = get(index);
@@ -105,7 +105,7 @@ public class LinkedList<T> {
     }
 
     /* Insert new Node into LinkedList */
-    public boolean insert(int index, T value) {
+    public boolean insert(int index, int value) {
         if (index < 0 || index > length) return false;
         if (index == 0) {
             push(value);
@@ -116,7 +116,7 @@ public class LinkedList<T> {
             return true;
         }
 
-        Node newNode = new Node<T>(value);
+        Node newNode = new Node(value);
         Node tempNode = get(index - 1);
 
         newNode.next = tempNode.next;

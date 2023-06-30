@@ -1,10 +1,10 @@
 package classes;
 
-public class Node<T> {
-    public T value;
+public class Node {
+    public int value;
     public Node next;
 
-    public Node(T value) {
+    public Node(int value) {
         this.value = value;
     }
 
