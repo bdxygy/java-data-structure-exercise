@@ -156,17 +156,29 @@ public class LinkedList {
     }
 
     public Node findMiddleNode() {
-        if(length == 0) return null;
-
         Node slowNode = head;
         Node fastNode = head;
 
-        while (fastNode != null && fastNode.next != null){
+        while (fastNode != null && fastNode.next != null) {
             slowNode = slowNode.next;
             fastNode = fastNode.next.next;
         }
 
         return slowNode;
+    }
+
+    public boolean hasLoop() {
+        Node slowNode = head;
+        Node fastNode = head;
+
+        while (fastNode != null && fastNode.next != null) {
+            slowNode = slowNode.next;
+            fastNode = fastNode.next.next;
+
+            if (slowNode == fastNode) return true;
+        }
+
+        return false;
     }
 
     @Override
