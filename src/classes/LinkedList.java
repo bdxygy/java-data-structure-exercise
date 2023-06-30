@@ -167,6 +167,23 @@ public class LinkedList {
         return slowNode;
     }
 
+    public Node findKthFromEnd(int k) {
+        Node fastNode = head;
+        Node slowNode = head;
+
+        for (int i = 0; i < k; i++) {
+            if (fastNode == null) return null;
+            fastNode = fastNode.next;
+        }
+
+        while (fastNode != null) {
+            slowNode = slowNode.next;
+            fastNode = fastNode.next;
+        }
+
+        return slowNode;
+    }
+
     public boolean hasLoop() {
         Node slowNode = head;
         Node fastNode = head;
