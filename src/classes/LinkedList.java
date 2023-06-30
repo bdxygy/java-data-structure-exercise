@@ -140,19 +140,33 @@ public class LinkedList {
         return tempNode;
     }
 
-    public void reverse(){
+    public void reverse() {
         Node tempNode = this.head;
         Node afterNode = tempNode.next;
         Node beforeNode = null;
         this.head = this.tail;
         this.tail = tempNode;
 
-        for(int i =0; i< length; i++){
+        for (int i = 0; i < length; i++) {
             afterNode = tempNode.next;
             tempNode.next = beforeNode;
             beforeNode = tempNode;
             tempNode = afterNode;
         }
+    }
+
+    public Node findMiddleNode() {
+        if(length == 0) return null;
+
+        Node slowNode = head;
+        Node fastNode = head;
+
+        while (fastNode != null && fastNode.next != null){
+            slowNode = slowNode.next;
+            fastNode = fastNode.next.next;
+        }
+
+        return slowNode;
     }
 
     @Override
